@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Top 50 Job Sites in South Africa | Skunkworks Academy</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Fonts & UI Kits -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg: #f4f4f4;
+      --card: #ffffff;
+      --ink: #161616;
+      --muted:#525252;
+      --brand:#0f62fe;    /* IBM Blue 60 */
+      --brand-2:#0353e9;  /* hover */
+      --accent:#42be65;   /* Green 40 */
+      --danger:#fa4d56;   /* Red 50 */
+      --ring: rgba(15,98,254,.25);
+      --shadow: 0 8px 28px rgba(0,0,0,.08);
+      --radius: 14px;
+      --speed: .35s;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#161616;
+        --card:#262626;
+        --ink:#f4f4f4;
+        --muted:#c6c6c6;
+        --ring:rgba(66,190,101,.25);
+        --shadow: 0 10px 30px rgba(0,0,0,.45);
+      }
+    }
+    [data-theme="dark"]{
+      --bg:#161616;
+      --card:#262626;
+      --ink:#f4f4f4;
+      --muted:#c6c6c6;
+      --ring:rgba(66,190,101,.25);
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:"IBM Plex Sans",system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(120%) blur(6px);
+      background:color-mix(in srgb, var(--bg) 85%, transparent);
+      border-bottom:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+    }
+    .nav{
+      max-width:1180px; margin:auto; padding:.8rem 1rem;
+      display:flex; gap:.75rem; align-items:center; justify-content:space-between;
+    }
+    .brand{
+      display:flex; gap:.6rem; align-items:center; text-decoration:none; color:var(--ink);
+      font-weight:700; letter-spacing:.2px;
+    }
+    .brand i{ color:var(--brand); }
+    .nav-actions{ display:flex; gap:.5rem; align-items:center; }
+
+    .btn{
+      appearance:none; border:1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+      background:var(--card); color:var(--ink);
+      padding:.55rem .85rem; border-radius:10px; cursor:pointer;
+      transition:transform var(--speed), box-shadow var(--speed), border-color var(--speed), background var(--speed);
+      box-shadow:0 2px 8px rgba(0,0,0,.06);
+    }
+    .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow); border-color:color-mix(in srgb, var(--brand) 35%, transparent); }
+    .btn.primary{ background:var(--brand); color:white; border-color:transparent; }
+    .btn.primary:hover{ background:var(--brand-2); }
+    .btn.ghost{ background:transparent; }
+    .btn.icon{ display:inline-flex; align-items:center; gap:.5rem; }
+    .btn:focus-visible{ outline:3px solid var(--ring); outline-offset:3px; }
+
+    /* Hero */
+    .hero{
+      position:relative; overflow:hidden; isolation:isolate;
+      background: radial-gradient(1200px 600px at 10% -10%, color-mix(in srgb, var(--brand) 12%, transparent), transparent 70%),
+                  radial-gradient(1200px 600px at 90% -10%, color-mix(in srgb, var(--accent) 15%, transparent), transparent 70%);
+      border-bottom:1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+    }
+    .hero-wrap{ max-width:1180px; margin:auto; padding:3.2rem 1rem 2rem; }
+    .hero h1{ margin:0 0 .6rem; font-size: clamp(1.8rem, 3.8vw, 2.6rem); letter-spacing:.2px; }
+    .hero p{ margin:.3rem 0 1.2rem; color:var(--muted); max-width:68ch; }
+    .hero-cta{ display:flex; gap:.5rem; flex-wrap:wrap; }
+
+    /* Animated wave SVG */
+    .wave{
+      position:absolute; inset:auto 0 0 0; height:110px; z-index:-1;
+    }
+    .wave svg{ width:100%; height:100%; display:block; }
+    .wave path{
+      animation:float 8s ease-in-out infinite alternate;
+      transform-origin: 50% 100%;
+    }
+    @keyframes float{
+      0%{ transform: translateY(0) }
+      100%{ transform: translateY(-8px) }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .wave path{ animation:none; }
+    }
+
+    /* Controls bar */
+    .controls{
+      max-width:1180px; margin: 1.2rem auto 0; padding:0 1rem 1rem;
+      display:grid; grid-template-columns:1fr auto; gap:.75rem; align-items:center;
+    }
+    .search{
+      display:flex; align-items:center; gap:.6rem; padding:.65rem .85rem; border-radius:12px;
+      background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      box-shadow:0 2px 12px rgba(0,0,0,.06);
+    }
+    .search input{
+      border:none; outline:none; width:100%; background:transparent; color:var(--ink);
+      font-size:1rem;
+    }
+    .chipbar{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:flex-end; }
+    .chip{
+      padding:.45rem .7rem; border-radius:999px; border:1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+      background:var(--card); color:var(--ink); font-size:.9rem; cursor:pointer;
+      transition:background var(--speed), color var(--speed), border-color var(--speed), transform var(--speed);
+    }
+    .chip:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.08); }
+    .chip.active{ background:var(--brand); color:#fff; border-color:transparent; }
+
+    /* Action row */
+    .actions{
+      max-width:1180px; margin:0 auto; padding:0 1rem 1rem;
+      display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; justify-content:space-between;
+    }
+    .view-toggle{ display:flex; gap:.4rem; }
+    .status{ color:var(--muted); font-size:.95rem; }
+
+    /* Grid/List */
+    .wrap{
+      max-width:1180px; margin: 0 auto; padding: 0 1rem 3rem;
+    }
+    .grid{
+      display:grid; gap:.9rem;
+      grid-template-columns: repeat( auto-fill, minmax(260px, 1fr) );
+    }
+    .list{ display:flex; flex-direction:column; gap:.6rem; }
+
+    .card{
+      background:var(--card); border:1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+      border-radius:var(--radius); box-shadow:0 6px 16px rgba(0,0,0,.06);
+      padding:1rem; display:flex; flex-direction:column; gap:.65rem;
+      transition: transform var(--speed), box-shadow var(--speed), border-color var(--speed);
+      position:relative; overflow:clip;
+    }
+    .card:hover{ transform: translateY(-3px); box-shadow:var(--shadow); border-color:color-mix(in srgb, var(--brand) 22%, transparent); }
+    .card .badge{
+      position:absolute; top:10px; right:10px; font-size:.75rem; letter-spacing:.2px;
+      background: color-mix(in srgb, var(--brand) 15%, transparent);
+      border:1px solid color-mix(in srgb, var(--brand) 30%, transparent);
+      color: color-mix(in srgb, var(--ink) 10%, #fff);
+      padding:.25rem .5rem; border-radius:999px;
+      backdrop-filter: blur(6px);
+    }
+    .title{ font-weight:600; display:flex; align-items:center; gap:.5rem; }
+    .meta{ color:var(--muted); font-size:.9rem; }
+    .go{
+      margin-top:auto; align-self:flex-start; text-decoration:none; display:inline-flex; gap:.5rem; align-items:center;
+      color:#fff; background:var(--brand); padding:.55rem .8rem; border-radius:10px; border:1px solid transparent;
+      transition:background var(--speed), transform var(--speed);
+    }
+    .go:hover{ background:var(--brand-2); transform:translateY(-1px); }
+    .go:focus-visible{ outline:3px solid var(--ring); outline-offset:3px; }
+
+    /* Empty state */
+    .empty{
+      text-align:center; color:var(--muted); padding:2rem 1rem;
+    }
+
+    /* Utilities */
+    .sr-only{ position:absolute!important; width:1px;height:1px;clip:rect(1px,1px,1px,1px); overflow:hidden; white-space:nowrap; }
+    .kbd{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:.85em;
+          background: color-mix(in srgb, var(--ink) 8%, transparent); padding:.15rem .35rem; border-radius:6px; }
+
+    /* Back to top */
+    .top{
+      position:fixed; right:18px; bottom:18px; z-index:40; opacity:0; pointer-events:none;
+      transition:opacity var(--speed), transform var(--speed);
+    }
+    .top.show{ opacity:1; pointer-events:auto; }
+    .top .btn{ border-radius:999px; padding:.7rem .8rem; }
+
+    /* Footer */
+    footer{ border-top:1px solid color-mix(in srgb, var(--ink) 12%, transparent); }
+    .foot{
+      max-width:1180px; margin:auto; padding:1.2rem 1rem; display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; justify-content:space-between;
+      color:var(--muted);
+    }
+
+    /* Subtle entrance animation */
+    .reveal{ opacity:0; transform: translateY(8px); }
+    .reveal.show{ opacity:1; transform:none; transition: opacity .6s ease, transform .6s ease; }
+    @media (prefers-reduced-motion: reduce){
+      .reveal, .reveal.show{ opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="../index.html" aria-label="Skunkworks Academy Home">
+        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+        <span>Skunkworks Academy</span>
+      </a>
+      <div class="nav-actions">
+        <button id="themeBtn" class="btn icon" type="button" aria-pressed="false" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i><span class="hide-sm">Theme</span>
+        </button>
+        <a class="btn primary icon" href="https://wa.me/27833807950" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-wrap">
+      <h1 class="reveal">Top 50 Job Sites in South Africa</h1>
+      <p class="reveal" style="transition-delay:.06s">
+        Curated, fast, and practical. Search, filter by type, copy or export the list. Built with accessibility and performance in mind.
+        <span class="kbd">/</span> focuses the search.
+      </p>
+      <div class="hero-cta reveal" style="transition-delay:.12s">
+        <button id="copyBtn" class="btn icon" type="button"><i class="fa-regular fa-copy"></i>Copy all</button>
+        <button id="csvBtn" class="btn icon" type="button"><i class="fa-solid fa-file-arrow-down"></i>Export CSV</button>
+        <button id="sortBtn" class="btn icon" type="button" aria-pressed="false"><i class="fa-solid fa-arrow-down-a-z"></i>Sort A–Z</button>
+        <div role="status" aria-live="polite" id="toast" class="sr-only"></div>
+      </div>
+    </div>
+
+    <!-- animated wave -->
+    <div class="wave" aria-hidden="true">
+      <svg preserveAspectRatio="none" viewBox="0 0 1200 120">
+        <path fill="currentColor" fill-opacity=".06" d="M0,0 C300,80 900,0 1200,70 L1200,120 L0,120 Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="search" role="search">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input id="q" type="search" placeholder="Search job sites…" autocomplete="off" aria-label="Search job sites" />
+      <button id="clearBtn" class="btn ghost icon" type="button" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="chipbar" role="toolbar" aria-label="Filters">
+      <!-- Chips get toggled to filter categories -->
+      <button class="chip active" data-filter="all" type="button">All</button>
+      <button class="chip" data-filter="general" type="button">General</button>
+      <button class="chip" data-filter="aggregator" type="button">Aggregators</button>
+      <button class="chip" data-filter="tech" type="button">Tech</button>
+      <button class="chip" data-filter="agency" type="button">Agencies</button>
+      <button class="chip" data-filter="gov" type="button">Gov/NGO</button>
+      <button class="chip" data-filter="youth" type="button">Youth/Entry</button>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="actions">
+    <div class="view-toggle" role="group" aria-label="View mode">
+      <button id="gridBtn" class="btn icon" type="button" aria-pressed="true" title="Grid view">
+        <i class="fa-solid fa-table-cells-large"></i>
+      </button>
+      <button id="listBtn" class="btn icon" type="button" aria-pressed="false" title="List view">
+        <i class="fa-solid fa-list"></i>
+      </button>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite">50 sites • All</div>
+  </div>
+
+  <!-- Content -->
+  <main class="wrap">
+    <section id="cards" class="grid" aria-label="Job sites list">
+      <!-- Cards injected by JS -->
+    </section>
+    <div id="empty" class="empty" hidden>
+      <p>No results. Try a different filter or clear the search.</p>
+    </div>
+  </main>
+
+  <!-- Back to top -->
+  <div class="top" id="backTop">
+    <button class="btn icon" aria-label="Back to top" type="button"><i class="fa-solid fa-arrow-up"></i></button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="foot">
+      <span>&copy; 2025 Skunkworks Academy</span>
+      <span>Made with curiosity in Johannesburg · <a href="../index.html" style="color:inherit">Home</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // Data — annotate each with a category for filtering
+    const SITES = [
+      { n:"PNet", u:"https://www.pnet.co.za", c:"general" },
+      { n:"Careers24", u:"https://www.careers24.com", c:"general" },
+      { n:"CareerJunction", u:"https://www.careerjunction.co.za", c:"general" },
+      { n:"CompuJobs", u:"https://www.compujobs.co.za", c:"tech" },
+      { n:"JobMail", u:"https://www.jobmail.co.za", c:"general" },
+      { n:"Executive Placements", u:"https://www.executiveplacements.com", c:"general" },
+      { n:"JobVine", u:"https://www.jobvine.com", c:"general" },
+      { n:"Glassdoor", u:"https://www.glassdoor.com/Job/south-africa-jobs-SRCH_IL.0,12_IN211.htm", c:"aggregator" },
+      { n:"Adzuna South Africa", u:"https://www.adzuna.co.za", c:"aggregator" },
+      { n:"Careerjet South Africa", u:"https://www.careerjet.co.za", c:"aggregator" },
+      { n:"JobIsJob", u:"https://www.jobisjob.co.za", c:"aggregator" },
+      { n:"RecruitmentPartner", u:"https://www.recruitmentpartner.co.za", c:"general" },
+      { n:"FreeRecruit", u:"https://www.freerecruit.co.za", c:"general" },
+      { n:"Bizcommunity Jobs", u:"https://www.bizcommunity.com/JobsOffered/196/1.html", c:"general" },
+      { n:"Gumtree Jobs", u:"https://www.gumtree.co.za/jobs", c:"general" },
+      { n:"Google for Jobs", u:"https://www.google.com/search?q=jobs+south+africa", c:"aggregator" },
+      { n:"BestJobs South Africa", u:"https://www.bestjobs.co.za", c:"general" },
+      { n:"Jora South Africa", u:"https://za.jora.com", c:"aggregator" },
+      { n:"Mustakbil South Africa", u:"https://za.mustakbil.com", c:"general" },
+      { n:"AfricaOnJobs", u:"https://www.africaonjobs.com", c:"general" },
+      { n:"SAYouth.mobi", u:"https://sayouth.mobi", c:"youth" },
+      { n:"JobJack", u:"https://www.jobjack.co.za", c:"youth" },
+      { n:"OfferZen", u:"https://www.offerzen.com", c:"tech" },
+      { n:"Ditto Jobs", u:"https://www.dittojobs.com", c:"general" },
+      { n:"LinkedIn Jobs", u:"https://za.linkedin.com/jobs", c:"aggregator" },
+      { n:"Indeed South Africa", u:"https://za.indeed.com", c:"aggregator" },
+      { n:"Monster South Africa", u:"https://www.monster.co.za", c:"aggregator" },
+      { n:"Jobs24 South Africa", u:"https://www.jobs24.com", c:"general" },
+      { n:"Michael Page South Africa", u:"https://www.michaelpageafrica.com/jobs/south-africa", c:"agency" },
+      { n:"Robert Walters SA", u:"https://www.robertwalters.co.za", c:"agency" },
+      { n:"Kelly Recruitment", u:"https://www.kelly.co.za", c:"agency" },
+      { n:"Quest Staffing Solutions", u:"https://www.quest.co.za", c:"agency" },
+      { n:"ManpowerGroup SA", u:"https://www.manpower.co.za", c:"agency" },
+      { n:"Hire Resolve", u:"https://www.hireresolve.co.za", c:"agency" },
+      { n:"Network Recruitment", u:"https://www.networkrecruitment.co.za", c:"agency" },
+      { n:"CA Global Africa Recruitment", u:"https://www.caglobalint.com", c:"agency" },
+      { n:"O’Neil Recruitment", u:"https://www.oneil.co.za", c:"agency" },
+      { n:"MASA Outsourcing", u:"https://www.masa.co.za", c:"agency" },
+      { n:"Tower Group", u:"https://www.towergroup.co.za", c:"agency" },
+      { n:"Isilumko Staffing", u:"https://www.isilumko.co.za", c:"agency" },
+      { n:"Prostaff Recruitment", u:"https://www.prostaff.co.za", c:"agency" },
+      { n:"Career Custodians", u:"https://www.careercustodians.com", c:"agency" },
+      { n:"Jobnet Africa", u:"https://www.jobnetafrica.com", c:"general" },
+      { n:"Careers in Africa", u:"https://www.careersinafrica.com", c:"general" },
+      { n:"Employment SA", u:"https://www.employmentsa.co.za", c:"general" },
+      { n:"Job Opportunities Africa", u:"https://www.jobopportunitiesafrica.com", c:"general" },
+      { n:"Government Jobs South Africa", u:"https://www.govpage.co.za", c:"gov" },
+      { n:"UN Jobs in South Africa", u:"https://unjobs.org/duty_stations/south-africa", c:"gov" },
+      { n:"NGO Pulse Jobs", u:"https://www.ngopulse.org/opportunity/", c:"gov" },
+      { n:"ReliefWeb South Africa", u:"https://reliefweb.int/country/zaf", c:"gov" },
+    ];
+
+    // DOM
+    const cards = document.getElementById('cards');
+    const empty = document.getElementById('empty');
+    const statusEl = document.getElementById('status');
+    const q = document.getElementById('q');
+    const clearBtn = document.getElementById('clearBtn');
+    const sortBtn = document.getElementById('sortBtn');
+    const gridBtn = document.getElementById('gridBtn');
+    const listBtn = document.getElementById('listBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const csvBtn = document.getElementById('csvBtn');
+    const themeBtn = document.getElementById('themeBtn');
+    const toast = document.getElementById('toast');
+    const backTop = document.getElementById('backTop');
+
+    // State
+    let searchTerm = '';
+    let filter = 'all';
+    let sortAZ = false;
+    let view = 'grid';
+
+    // Init theme (respect saved preference)
+    (function initTheme(){
+      const saved = localStorage.getItem('theme');
+      if(saved === 'dark'){ document.documentElement.setAttribute('data-theme','dark'); themeBtn.setAttribute('aria-pressed','true'); themeBtn.innerHTML='<i class="fa-solid fa-sun"></i><span>Theme</span>'; }
+    })();
+
+    // Render
+    function render(){
+      let data = SITES
+        .filter(s => filter === 'all' ? true : s.c === filter)
+        .filter(s => !searchTerm ? true :
+          s.n.toLowerCase().includes(searchTerm) || s.u.toLowerCase().includes(searchTerm)
+        );
+
+      if(sortAZ){
+        data = [...data].sort((a,b)=> a.n.localeCompare(b.n));
+      }
+
+      statusEl.textContent = `${data.length} sites • ${filter === 'all' ? 'All' : nice(filter)}`;
+
+      if(!data.length){
+        cards.innerHTML = '';
+        empty.hidden = false;
+        return;
+      }
+      empty.hidden = true;
+
+      const frag = document.createDocumentFragment();
+      data.forEach(site=>{
+        const card = document.createElement('article');
+        card.className = 'card reveal';
+        card.setAttribute('data-cat', site.c);
+
+        const badge = document.createElement('span');
+        badge.className = 'badge';
+        badge.textContent = nice(site.c);
+        card.appendChild(badge);
+
+        const title = document.createElement('div');
+        title.className = 'title';
+        title.innerHTML = `<i class="fa-solid fa-briefcase"></i> ${escapeHTML(site.n)}`;
+        card.appendChild(title);
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = site.u;
+        card.appendChild(meta);
+
+        const go = document.createElement('a');
+        go.className = 'go';
+        go.href = site.u; go.target = '_blank'; go.rel='noopener';
+        go.innerHTML = `<i class="fa-solid fa-up-right-from-square"></i> Visit`;
+        card.appendChild(go);
+
+        frag.appendChild(card);
+      });
+      cards.innerHTML = '';
+      cards.appendChild(frag);
+
+      if(view === 'list'){ cards.classList.remove('grid'); cards.classList.add('list'); }
+      else { cards.classList.add('grid'); cards.classList.remove('list'); }
+
+      // reveal animation
+      requestAnimationFrame(()=> {
+        document.querySelectorAll('.reveal').forEach((el,i)=>{
+          el.style.transitionDelay = (i*30)+'ms';
+          el.classList.add('show');
+        });
+      });
+    }
+
+    function nice(cat){
+      const map = { general:'General', aggregator:'Aggregators', tech:'Tech', agency:'Agencies', gov:'Gov/NGO', youth:'Youth/Entry' };
+      return map[cat] || 'General';
+    }
+
+    function escapeHTML(s){
+      return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+    }
+
+    // Search
+    q.addEventListener('input', e=>{
+      searchTerm = e.target.value.trim().toLowerCase();
+      render();
+    });
+    clearBtn.addEventListener('click', ()=>{
+      q.value=''; searchTerm=''; q.focus(); render();
+    });
+    // Focus search via "/"
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === '/' && document.activeElement !== q){
+        e.preventDefault(); q.focus();
+      }
+    });
+
+    // Filter chips
+    document.querySelectorAll('.chip').forEach(ch=>{
+      ch.addEventListener('click', ()=>{
+        document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+        ch.classList.add('active');
+        filter = ch.dataset.filter;
+        render();
+      });
+    });
+
+    // Sort
+    sortBtn.addEventListener('click', ()=>{
+      sortAZ = !sortAZ;
+      sortBtn.setAttribute('aria-pressed', String(sortAZ));
+      sortBtn.innerHTML = sortAZ
+        ? '<i class="fa-solid fa-arrow-down-a-z"></i>Sorted A–Z'
+        : '<i class="fa-solid fa-arrow-down-a-z"></i>Sort A–Z';
+      render();
+    });
+
+    // View toggle
+    gridBtn.addEventListener('click', ()=>{
+      view='grid'; gridBtn.setAttribute('aria-pressed','true'); listBtn.setAttribute('aria-pressed','false'); render();
+    });
+    listBtn.addEventListener('click', ()=>{
+      view='list'; listBtn.setAttribute('aria-pressed','true'); gridBtn.setAttribute('aria-pressed','false'); render();
+    });
+
+    // Copy all
+    copyBtn.addEventListener('click', async ()=>{
+      const lines = SITES.map(s=> `${s.n} — ${s.u}`).join('\n');
+      try{
+        await navigator.clipboard.writeText(lines);
+        announce('Copied 50 sites to clipboard.');
+      }catch{
+        announce('Copy failed. Your browser may block clipboard access.', true);
+      }
+    });
+
+    // Export CSV
+    csvBtn.addEventListener('click', ()=>{
+      const rows = [['site_name','url'], ...SITES.map(s=>[s.n, s.u])];
+      const csv = rows.map(r => r.map(x => `"${String(x).replaceAll('"','""')}"`).join(',')).join('\n');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'south-africa-job-sites.csv';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(a.href);
+      announce('CSV exported.');
+    });
+
+    // Theme
+    themeBtn.addEventListener('click', ()=>{
+      const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if(dark){ document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme','light'); themeBtn.setAttribute('aria-pressed','false'); themeBtn.innerHTML='<i class="fa-solid fa-moon"></i><span>Theme</span>'; }
+      else { document.documentElement.setAttribute('data-theme','dark'); localStorage.setItem('theme','dark'); themeBtn.setAttribute('aria-pressed','true'); themeBtn.innerHTML='<i class="fa-solid fa-sun"></i><span>Theme</span>'; }
+    });
+
+    // Back to top
+    window.addEventListener('scroll', ()=>{
+      if(window.scrollY > 280) backTop.classList.add('show'); else backTop.classList.remove('show');
+    });
+    backTop.querySelector('button').addEventListener('click', ()=> window.scrollTo({ top:0, behavior:'smooth' }));
+
+    // Live region announcements
+    function announce(msg, isError=false){
+      toast.classList.remove('sr-only');
+      toast.textContent = msg;
+      if(!isError){ setTimeout(()=>{ toast.textContent=''; toast.classList.add('sr-only'); }, 1500); }
+    }
+
+    // Kickoff
+    render();
+  </script>
+</body>
+</html>
