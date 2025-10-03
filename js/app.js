@@ -1,6 +1,6 @@
 async function loadSites() {
   try {
-    const res = await fetch('../public/jobsites.json');
+    const res = await fetch('public/jobsites.json'); // ✅ correct path for root index.html
     const sites = await res.json();
     renderSites(sites);
 
@@ -27,6 +27,30 @@ async function loadSites() {
         }
         renderSites(filtered);
       });
+    });
+
+    // --- Copy all to clipboard
+    document.getElementById('copyBtn')?.addEventListener('click', () => {
+      const text = sites.map(s => `${s.name} — ${s.url}`).join('\n');
+      navigator.clipboard.writeText(text).then(() => {
+        alert('✅ Job sites copied to clipboard!');
+      });
+    });
+
+    // --- Export CSV
+    document.getElementById('csvBtn')?.addEventListener('click', () => {
+      const header = ["Name", "URL", "Region", "Category"];
+      const rows = sites.map(s => [s.name, s.url, s.region || "", s.category || ""]);
+      const csv = [header, ...rows].map(r => r.map(v => `"${v}"`).join(",")).join("\n");
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'jobsites.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     });
 
   } catch (err) {
@@ -63,5 +87,5 @@ function renderSites(list) {
   });
 }
 
-// Kick things off
+// Kick off
 loadSites();
