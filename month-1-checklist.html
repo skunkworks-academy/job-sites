@@ -2,207 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Skunkworks Academy – Month 1 Checklist</title>
+
+  <title>Month 1 IT Operator Checklist | Skunkworks Academy</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --accent: #38bdf8;
-      --muted: #94a3b8;
-      --text: #e5e7eb;
-      --success: #22c55e;
-    }
+  <!-- SEO -->
+  <meta name="description" content="A structured Month 1 IT operator checklist by Skunkworks Academy. Designed for junior operators managing a live job listings directory with real-world tasks, accountability, and growth." />
+  <meta name="keywords" content="IT checklist, junior IT role, job directory management, Skunkworks Academy, IT operations training, entry level IT" />
+  <meta name="author" content="Skunkworks Academy" />
+  <meta name="robots" content="index, follow" />
 
-    * {
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell;
-    }
+  <!-- Canonical -->
+  <link rel="canonical" href="https://jobs.skunkworksacademy.com/month-1-checklist.html" />
 
-    body {
-      margin: 0;
-      background: linear-gradient(180deg, #020617, #020617);
-      color: var(--text);
-      padding: 2rem;
-    }
+  <!-- Open Graph -->
+  <meta property="og:title" content="Month 1 IT Operator Checklist | Skunkworks Academy" />
+  <meta property="og:description" content="A practical Month 1 checklist for junior IT operators working on a real production job directory." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jobs.skunkworksacademy.com/month-1-checklist.html" />
+  <meta property="og:image" content="https://jobs.skunkworksacademy.com/public/og-checklist.png" />
 
-    h1 {
-      margin-bottom: 0.25rem;
-      font-size: 2rem;
-    }
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Month 1 IT Operator Checklist | Skunkworks Academy" />
+  <meta name="twitter:description" content="A structured Month 1 checklist for junior IT operators managing a live job listings platform." />
+  <meta name="twitter:image" content="https://jobs.skunkworksacademy.com/public/og-checklist.png" />
 
-    h2 {
-      margin-top: 2rem;
-      border-bottom: 1px solid #1f2933;
-      padding-bottom: 0.5rem;
-    }
-
-    p.subtitle {
-      color: var(--muted);
-      margin-top: 0;
-    }
-
-    .controls {
-      display: flex;
-      gap: 1rem;
-      margin: 1.5rem 0;
-      flex-wrap: wrap;
-    }
-
-    button {
-      background: var(--accent);
-      color: #020617;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    button.secondary {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-
-    .week {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .task {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      margin: 0.6rem 0;
-    }
-
-    .task input {
-      transform: scale(1.2);
-      margin-top: 0.2rem;
-      accent-color: var(--success);
-    }
-
-    .task label {
-      line-height: 1.4;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-top: 3rem;
-    }
-
-    /* PRINT / PDF STYLES */
-    @media print {
-      body {
-        background: #ffffff;
-        color: #000000;
-        padding: 1rem;
-      }
-
-      .controls {
-        display: none;
-      }
-
-      .week {
-        box-shadow: none;
-        border: 1px solid #ccc;
-        page-break-inside: avoid;
-      }
-
-      h1, h2 {
-        color: #000000;
-      }
-    }
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/checklist.css" />
 </head>
 
 <body>
-  <h1>Skunkworks Academy</h1>
-  <p class="subtitle">Month 1 – Job Listings Directory Checklist</p>
+  <header role="banner">
+    <h1>Month 1 IT Operator Checklist</h1>
+    <p class="subtitle">Skunkworks Academy • Job Listings Directory</p>
+  </header>
 
-  <div class="controls">
-    <button onclick="window.print()">Print / Save as PDF</button>
-    <button class="secondary" onclick="resetChecklist()">Reset Checklist</button>
-  </div>
+  <main role="main">
+    <section class="controls">
+      <button onclick="window.print()">Print / Save as PDF</button>
+      <button class="secondary" onclick="resetChecklist()">Reset Checklist</button>
+    </section>
 
-  <!-- WEEK 1 -->
-  <div class="week">
-    <h2>Week 1 – Discovery & Ground Truth</h2>
+    <!-- WEEK 1 -->
+    <section class="week">
+      <h2>Week 1 – Discovery & Ground Truth</h2>
+      <label><input type="checkbox" id="t1"> Browse entire site and understand its purpose</label>
+      <label><input type="checkbox" id="t2"> Create simple sitemap (pages + purpose)</label>
+      <label><input type="checkbox" id="t3"> Create master audit spreadsheet</label>
+      <label><input type="checkbox" id="t4"> List all outbound job links</label>
+      <label><input type="checkbox" id="t5"> Add metadata (category, region, type)</label>
+      <label><input type="checkbox" id="t6"> Test first 50% of links</label>
+      <label><input type="checkbox" id="t7"> Test remaining 50% of links</label>
+      <label><input type="checkbox" id="t8"> Write Week 1 summary</label>
+    </section>
 
-    <div class="task"><input type="checkbox" id="t1"><label for="t1">Day 1: Browse entire site and understand its purpose</label></div>
-    <div class="task"><input type="checkbox" id="t2"><label for="t2">Create a simple sitemap (pages + purpose)</label></div>
-    <div class="task"><input type="checkbox" id="t3"><label for="t3">Create master audit spreadsheet</label></div>
+    <!-- WEEK 2 -->
+    <section class="week">
+      <h2>Week 2 – Repair & Expansion</h2>
+      <label><input type="checkbox" id="t9"> Research replacement job boards</label>
+      <label><input type="checkbox" id="t10"> Validate replacements</label>
+      <label><input type="checkbox" id="t11"> Refine categories (IT / Remote / Internship)</label>
+      <label><input type="checkbox" id="t12"> Research 10 new job boards</label>
+      <label><input type="checkbox" id="t13"> Add top 5 approved boards</label>
+    </section>
 
-    <div class="task"><input type="checkbox" id="t4"><label for="t4">Day 2: List all outbound job links</label></div>
-    <div class="task"><input type="checkbox" id="t5"><label for="t5">Add link metadata (category, region, type)</label></div>
+    <!-- WEEK 3 -->
+    <section class="week">
+      <h2>Week 3 – Quality & Documentation</h2>
+      <label><input type="checkbox" id="t14"> Standardise naming & descriptions</label>
+      <label><input type="checkbox" id="t15"> UX walkthrough (desktop & mobile)</label>
+      <label><input type="checkbox" id="t16"> Write SOP for link evaluation</label>
+      <label><input type="checkbox" id="t17"> Flag low-trust links</label>
+    </section>
 
-    <div class="task"><input type="checkbox" id="t6"><label for="t6">Day 3: Test first 50% of links</label></div>
-    <div class="task"><input type="checkbox" id="t7"><label for="t7">Day 4: Test remaining 50% of links</label></div>
-
-    <div class="task"><input type="checkbox" id="t8"><label for="t8">Day 5: Write Week 1 summary and findings</label></div>
-  </div>
-
-  <!-- WEEK 2 -->
-  <div class="week">
-    <h2>Week 2 – Repair & Expansion</h2>
-
-    <div class="task"><input type="checkbox" id="t9"><label for="t9">Research replacements for broken/outdated links</label></div>
-    <div class="task"><input type="checkbox" id="t10"><label for="t10">Validate replacement job boards</label></div>
-    <div class="task"><input type="checkbox" id="t11"><label for="t11">Refine categories (IT, Remote, Internship)</label></div>
-    <div class="task"><input type="checkbox" id="t12"><label for="t12">Research 10 new job boards</label></div>
-    <div class="task"><input type="checkbox" id="t13"><label for="t13">Add top 5 approved boards to site</label></div>
-  </div>
-
-  <!-- WEEK 3 -->
-  <div class="week">
-    <h2>Week 3 – Quality & Documentation</h2>
-
-    <div class="task"><input type="checkbox" id="t14"><label for="t14">Standardise naming and descriptions</label></div>
-    <div class="task"><input type="checkbox" id="t15"><label for="t15">UX walkthrough (desktop & mobile)</label></div>
-    <div class="task"><input type="checkbox" id="t16"><label for="t16">Write SOP: how links are evaluated</label></div>
-    <div class="task"><input type="checkbox" id="t17"><label for="t17">Identify and flag low-trust links</label></div>
-  </div>
-
-  <!-- WEEK 4 -->
-  <div class="week">
-    <h2>Week 4 – Ownership & Close-Out</h2>
-
-    <div class="task"><input type="checkbox" id="t18"><label for="t18">Create change log (before/after)</label></div>
-    <div class="task"><input type="checkbox" id="t19"><label for="t19">Write maintenance playbook (weekly/monthly)</label></div>
-    <div class="task"><input type="checkbox" id="t20"><label for="t20">Final QA pass and Month 1 review</label></div>
-  </div>
+    <!-- WEEK 4 -->
+    <section class="week">
+      <h2>Week 4 – Ownership & Close-Out</h2>
+      <label><input type="checkbox" id="t18"> Create before/after change log</label>
+      <label><input type="checkbox" id="t19"> Write maintenance playbook</label>
+      <label><input type="checkbox" id="t20"> Final QA + Month 1 review</label>
+    </section>
+  </main>
 
   <footer>
-    Maintained by Skunkworks Academy • Month 1 Operator Checklist
+    Maintained by Skunkworks Academy • jobs.skunkworksacademy.com
   </footer>
 
-  <script>
-    const checkboxes = document.querySelectorAll("input[type='checkbox']");
-
-    checkboxes.forEach(cb => {
-      const saved = localStorage.getItem(cb.id);
-      cb.checked = saved === "true";
-
-      cb.addEventListener("change", () => {
-        localStorage.setItem(cb.id, cb.checked);
-      });
-    });
-
-    function resetChecklist() {
-      if (!confirm("Reset all completed tasks?")) return;
-      checkboxes.forEach(cb => {
-        cb.checked = false;
-        localStorage.removeItem(cb.id);
-      });
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOccupationalProgram",
+    "name": "Month 1 IT Operator Checklist",
+    "description": "A structured Month 1 checklist for junior IT operators managing a live job listings directory.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Skunkworks Academy",
+      "url": "https://skunkworksacademy.com"
     }
+  }
   </script>
+
+  <script src="js/checklist.js"></script>
 </body>
 </html>
