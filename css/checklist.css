@@ -1,0 +1,92 @@
+:root {
+  --bg: #020617;
+  --card: #0f172a;
+  --accent: #38bdf8;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --success: #22c55e;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto;
+}
+
+header {
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  color: var(--muted);
+}
+
+.controls {
+  margin-bottom: 2rem;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+button:not(.secondary) {
+  background: var(--accent);
+  color: #020617;
+}
+
+.week {
+  background: var(--card);
+  padding: 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.week h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin: 0.4rem 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--success);
+  margin-right: 0.5rem;
+}
+
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  .controls {
+    display: none;
+  }
+  .week {
+    border: 1px solid #ccc;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+}
