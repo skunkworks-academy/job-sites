@@ -1,6 +1,6 @@
-const boxes = document.querySelectorAll("input[type='checkbox']");
+const checkboxes = document.querySelectorAll("input[type='checkbox']");
 
-boxes.forEach(box => {
+checkboxes.forEach(box => {
   const saved = localStorage.getItem(box.id);
   box.checked = saved === "true";
 
@@ -11,7 +11,8 @@ boxes.forEach(box => {
 
 function resetChecklist() {
   if (!confirm("Reset all completed tasks?")) return;
-  boxes.forEach(box => {
+
+  checkboxes.forEach(box => {
     box.checked = false;
     localStorage.removeItem(box.id);
   });
