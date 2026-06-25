@@ -116,18 +116,8 @@
           </div>
 
           <div class="upload-grid">
-            <label class="upload-card" for="fileUpload">
-              <i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i>
-              <strong>Upload files</strong>
-              <span>CV, notes, certificates, portfolio exports, TXT, MD, CSV, JSON, PDF, DOC/DOCX.</span>
-              <input id="fileUpload" type="file" multiple accept=".pdf,.doc,.docx,.txt,.md,.rtf,.csv,.json,.html,.htm" />
-            </label>
-            <label class="upload-card" for="imageUpload">
-              <i class="fa-solid fa-image" aria-hidden="true"></i>
-              <strong>Upload images</strong>
-              <span>Profile screenshot, certificate image, portfolio image or role reference.</span>
-              <input id="imageUpload" type="file" multiple accept="image/*" />
-            </label>
+            <label class="upload-card" for="fileUpload"><i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i><strong>Upload files</strong><span>CV, notes, certificates, portfolio exports, TXT, MD, CSV, JSON, PDF, DOC/DOCX.</span><input id="fileUpload" type="file" multiple accept=".pdf,.doc,.docx,.txt,.md,.rtf,.csv,.json,.html,.htm" /></label>
+            <label class="upload-card" for="imageUpload"><i class="fa-solid fa-image" aria-hidden="true"></i><strong>Upload images</strong><span>Profile screenshot, certificate image, portfolio image or role reference.</span><input id="imageUpload" type="file" multiple accept="image/*" /></label>
           </div>
 
           <p class="upload-summary" id="uploadSummary">No files uploaded yet.</p>
@@ -155,55 +145,20 @@
         <button data-filter="Recruitment Agency" type="button">Agencies</button>
         <button data-filter="Agency / NGO" type="button">NGO</button>
       </div>
-      <div class="actions" aria-label="Directory actions">
-        <span class="counter"><strong id="visibleCount">—</strong> of <strong id="siteCount">—</strong> platforms</span>
-        <button id="copyBtn" type="button"><i class="fa-solid fa-copy" aria-hidden="true"></i>Copy visible</button>
-        <button id="csvBtn" type="button"><i class="fa-solid fa-file-csv" aria-hidden="true"></i>Export CSV</button>
-      </div>
+      <div class="actions" aria-label="Directory actions"><span class="counter"><strong id="visibleCount">—</strong> of <strong id="siteCount">—</strong> platforms</span><button id="copyBtn" type="button"><i class="fa-solid fa-copy" aria-hidden="true"></i>Copy visible</button><button id="csvBtn" type="button"><i class="fa-solid fa-file-csv" aria-hidden="true"></i>Export CSV</button></div>
     </section>
 
-    <section class="section-shell results-shell" aria-label="Job platform results">
-      <div id="cards" class="grid" aria-live="polite"></div>
-      <p id="empty" class="empty-state" hidden>No results found. Try a broader prompt such as “remote work”, “graduate jobs”, “freelance developer”, or “South Africa”.</p>
-    </section>
+    <section class="section-shell results-shell" aria-label="Job platform results"><div id="cards" class="grid" aria-live="polite"></div><p id="empty" class="empty-state" hidden>No results found. Try a broader prompt such as “remote work”, “graduate jobs”, “freelance developer”, or “South Africa”.</p></section>
 
     <section class="section-shell two-column">
-      <aside class="tips card-panel">
-        <p class="eyebrow">How to write better searches</p>
-        <h2>Prompt checklist</h2>
-        <ul>
-          <li><i class="fa-solid fa-bullseye" aria-hidden="true"></i><span><strong>Role:</strong> sales, support, developer, analyst, instructor, marketer.</span></li>
-          <li><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span><strong>Level:</strong> internship, entry-level, junior, senior, freelance, contract.</span></li>
-          <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span><strong>Location:</strong> South Africa, remote, international, hybrid, on-site.</span></li>
-          <li><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i><span><strong>Skills:</strong> cloud, AI, cybersecurity, sales, product, media, Microsoft.</span></li>
-          <li><i class="fa-solid fa-file-signature" aria-hidden="true"></i><span><strong>Application readiness:</strong> keep a focused CV, portfolio and short cover note ready.</span></li>
-        </ul>
-      </aside>
-      <aside class="repo-panel card-panel">
-        <p class="eyebrow">Repository intelligence</p>
-        <h2>GitHub organisation and repo structure</h2>
-        <p class="muted">This site is published from the <code>skunkworks-academy/jobs</code> GitHub Pages repository.</p>
-        <div class="repo-grid" id="repoGrid">
-          <a class="repo-item" href="https://github.com/skunkworks-academy/jobs" target="_blank" rel="noopener"><strong>Current repository</strong><span>skunkworks-academy/jobs</span></a>
-          <a class="repo-item" href="https://github.com/skunkworks-academy" target="_blank" rel="noopener"><strong>GitHub organisation</strong><span>Browse Academy repositories</span></a>
-        </div>
-      </aside>
+      <aside class="tips card-panel"><p class="eyebrow">How to write better searches</p><h2>Prompt checklist</h2><ul><li><i class="fa-solid fa-bullseye" aria-hidden="true"></i><span><strong>Role:</strong> sales, support, developer, analyst, instructor, marketer.</span></li><li><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span><strong>Level:</strong> internship, entry-level, junior, senior, freelance, contract.</span></li><li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span><strong>Location:</strong> South Africa, remote, international, hybrid, on-site.</span></li><li><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i><span><strong>Skills:</strong> cloud, AI, cybersecurity, sales, product, media, Microsoft.</span></li><li><i class="fa-solid fa-file-signature" aria-hidden="true"></i><span><strong>Application readiness:</strong> keep a focused CV, portfolio and short cover note ready.</span></li></ul></aside>
+      <aside class="repo-panel card-panel"><p class="eyebrow">Repository intelligence</p><h2>GitHub organisation and repo structure</h2><p class="muted">This site is published from the <code>skunkworks-academy/jobs</code> GitHub Pages repository.</p><div class="repo-grid" id="repoGrid"><a class="repo-item" href="https://github.com/skunkworks-academy/jobs" target="_blank" rel="noopener"><strong>Current repository</strong><span>skunkworks-academy/jobs</span></a><a class="repo-item" href="https://github.com/skunkworks-academy" target="_blank" rel="noopener"><strong>GitHub organisation</strong><span>Browse Academy repositories</span></a></div></aside>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <strong>Skunkworks Academy Jobs</strong>
-        <p>Describe the work you want. Find the best routes to apply.</p>
-      </div>
-      <div class="footer-links">
-        <a href="https://github.com/skunkworks-academy/jobs" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub Repo</a>
-        <a href="mailto:training@skunkworks.africa"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Contact</a>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="footer-inner"><div><strong>Skunkworks Academy Jobs</strong><p>Describe the work you want. Find the best routes to apply.</p></div><div class="footer-links"><a href="https://github.com/skunkworks-academy/jobs" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub Repo</a><a href="mailto:training@skunkworks.africa"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Contact</a></div></div></footer>
 
   <script src="js/app.js"></script>
+  <script src="js/copilot-search.js"></script>
 </body>
 </html>
