@@ -42,6 +42,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
+  <link href="css/ai-search.css" rel="stylesheet" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Skunkworks Academy Jobs","url":"https://jobs.skunkworksacademy.com/","description":"Mobile-first job discovery and curated career directory for Skunkworks Academy learners, graduates, instructors, freelancers and technology professionals.","potentialAction":{"@type":"SearchAction","target":"https://jobs.skunkworksacademy.com/?q={search_term_string}","query-input":"required name=search_term_string"},"publisher":{"@type":"EducationalOrganization","name":"Skunkworks Academy","url":"https://skunkworksacademy.com/"}}</script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11284592923"></script>
@@ -96,6 +97,46 @@
           <button class="button primary" type="submit"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>Find matching platforms</button>
           <button class="button secondary" type="button" id="clearBtn"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i>Reset</button>
         </div>
+
+        <section class="search-enhancers" aria-label="Plugins, apps, tools and upload context">
+          <div class="enhancer-head">
+            <p class="eyebrow">Plugins / apps / tools</p>
+            <h2>Search with extra context</h2>
+            <p>Choose search tools and upload a CV, notes, portfolio file, certificate, screenshot or image. Files stay in the browser and are used as local prompt context for matching and web-search routing.</p>
+          </div>
+
+          <div class="tool-picker" role="group" aria-label="Search tools">
+            <label class="tool-card"><input type="checkbox" name="searchTool" value="copilot-web" checked><span><strong>Copilot web search AI module</strong><em>Builds web-search prompts and external search routes.</em></span></label>
+            <label class="tool-card"><input type="checkbox" name="searchTool" value="linkedin"><span><strong>LinkedIn Jobs</strong><em>Prioritise LinkedIn-style professional listings.</em></span></label>
+            <label class="tool-card"><input type="checkbox" name="searchTool" value="indeed"><span><strong>Indeed / broad boards</strong><em>Prioritise high-volume job boards.</em></span></label>
+            <label class="tool-card"><input type="checkbox" name="searchTool" value="pnet"><span><strong>PNet / SA boards</strong><em>Prioritise South African job routes.</em></span></label>
+            <label class="tool-card"><input type="checkbox" name="searchTool" value="github"><span><strong>GitHub / tech signals</strong><em>Boost developer, AI, cloud and portfolio routes.</em></span></label>
+            <label class="tool-card"><input type="checkbox" name="searchTool" value="cv-parser"><span><strong>CV / file parser</strong><em>Use text files and filenames as search context.</em></span></label>
+            <label class="tool-card"><input type="checkbox" name="searchTool" value="image-context"><span><strong>Image context</strong><em>Use uploaded image names and types as search context.</em></span></label>
+          </div>
+
+          <div class="upload-grid">
+            <label class="upload-card" for="fileUpload">
+              <i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i>
+              <strong>Upload files</strong>
+              <span>CV, notes, certificates, portfolio exports, TXT, MD, CSV, JSON, PDF, DOC/DOCX.</span>
+              <input id="fileUpload" type="file" multiple accept=".pdf,.doc,.docx,.txt,.md,.rtf,.csv,.json,.html,.htm" />
+            </label>
+            <label class="upload-card" for="imageUpload">
+              <i class="fa-solid fa-image" aria-hidden="true"></i>
+              <strong>Upload images</strong>
+              <span>Profile screenshot, certificate image, portfolio image or role reference.</span>
+              <input id="imageUpload" type="file" multiple accept="image/*" />
+            </label>
+          </div>
+
+          <p class="upload-summary" id="uploadSummary">No files uploaded yet.</p>
+          <aside class="copilot-panel" id="copilotPanel" hidden>
+            <strong>Copilot web search pack</strong>
+            <p id="copilotSummary">Submit a prompt to generate web-search routes.</p>
+            <div class="copilot-links" id="copilotLinks"></div>
+          </aside>
+        </section>
       </form>
     </section>
 
