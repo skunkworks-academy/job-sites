@@ -1,6 +1,6 @@
 (() => {
   const toolTerms = {
-    'copilot-web': ['copilot', 'web search', 'bing', 'internet', 'source'],
+    'copilot-web': [],
     linkedin: ['linkedin', 'professional', 'network', 'recruiter'],
     indeed: ['indeed', 'broad job board', 'job board', 'career'],
     pnet: ['pnet', 'south africa', 'local', 'careers24', 'careerjunction'],
@@ -84,8 +84,9 @@
   }
 
   function buildCopilotQuery(prompt, extra) {
+    const selected = selectedTools().join(', ');
     const uploadedNames = [...uploadState.files, ...uploadState.images].map((item) => item.name).join(', ');
-    return [prompt || 'job search', extra, uploadedNames && `uploaded context: ${uploadedNames}`].filter(Boolean).join(' | ');
+    return [prompt || 'job search', selected && `tools: ${selected}`, extra, uploadedNames && `uploaded context: ${uploadedNames}`].filter(Boolean).join(' | ');
   }
 
   function renderCopilotPanel(prompt = '', extra = '') {
@@ -105,9 +106,9 @@
     const routes = [
       ['Open in Copilot', 'fa-wand-magic-sparkles', `https://copilot.microsoft.com/?q=${encoded}`],
       ['Bing web search', 'fa-magnifying-glass', `https://www.bing.com/search?q=${jobQuery}`],
-      ['LinkedIn Jobs', 'fa-linkedin', `https://www.linkedin.com/jobs/search/?keywords=${jobQuery}`],
+      ['LinkedIn Jobs', 'fa-arrow-up-right-from-square', `https://www.linkedin.com/jobs/search/?keywords=${jobQuery}`],
       ['Indeed', 'fa-briefcase', `https://www.indeed.com/jobs?q=${jobQuery}`],
-      ['Google jobs query', 'fa-google', `https://www.google.com/search?q=${jobQuery}`]
+      ['Google jobs query', 'fa-arrow-up-right-from-square', `https://www.google.com/search?q=${jobQuery}`]
     ];
 
     summary.textContent = `Use this generated prompt with Copilot or web search: ${query}`;
