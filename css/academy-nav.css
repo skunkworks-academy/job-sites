@@ -1,0 +1,162 @@
+/* Unified Skunkworks Academy navigation for the Jobs site.
+   Scoped intentionally so the mobile-first job-search UI keeps its own layout. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.nav-wrap {
+  width: min(1180px, calc(100% - 32px));
+  min-height: 76px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  flex: 0 0 auto;
+}
+
+.logo-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .logo-light { display: none; }
+  .logo-dark { display: inline-block; }
+}
+
+.brand-text {
+  display: inline-grid;
+  gap: 0;
+  line-height: 1.05;
+}
+
+.brand-text small {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-header .nav-toggle {
+  display: none;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--text);
+  align-items: center;
+  justify-content: center;
+}
+
+.site-header .main-nav {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.site-header .main-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.site-header .main-nav a img {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+}
+
+.site-header .main-nav a:hover,
+.site-header .main-nav a[aria-current="page"] {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--line));
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.site-header .nav-label {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1120px) {
+  .site-header .nav-toggle { display: inline-flex; }
+
+  .site-header .main-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 16px;
+    right: 16px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  .site-header .main-nav.open {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-header .main-nav a {
+    justify-content: flex-start;
+    white-space: normal;
+  }
+
+  .site-header .nav-label {
+    grid-column: 1 / -1;
+    padding: 10px 4px 2px;
+  }
+}
+
+@media (max-width: 620px) {
+  .nav-wrap { width: min(100% - 24px, 1180px); }
+  .brand-text small { display: none; }
+  .site-header .main-nav.open { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .brand-text { max-width: 190px; overflow: hidden; text-overflow: ellipsis; }
+}
